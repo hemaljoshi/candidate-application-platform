@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@mui/material/styles';
 
+
 const THEME = createTheme({
   typography: {
     "fontFamily": `"Lexend", "Helvetica", "Arial", sans-serif`,

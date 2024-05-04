@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+const BASE_URL = 'https://api.weekday.technology/adhoc/getSampleJdJSON';
 
 const initialState = {
     jobListings: [],
@@ -11,7 +12,7 @@ const initialState = {
 
 export const fetchJobs = createAsyncThunk('jobs/fetchJobs', async (offset) => {
     try {
-        const response = await axios.post('https://api.weekday.technology/adhoc/getSampleJdJSON', {
+        const response = await axios.post(BASE_URL, {
             limit: 10,
             offset,
         });
@@ -32,7 +33,9 @@ const jobsSlice = createSlice({
         });
         builder.addCase(fetchJobs.fulfilled, (state, action) => {
             state.loading = false;
-            state.jobListings = [...state.jobListings, ...action.payload.jdList];
+            state.jobListings = [
+                ...new Map([...state.jobListings, ...action.payload.jdList].map((item) => [item.jdUid, item])).values(),
+            ];
             state.offset += 10;
         });
         builder.addCase(fetchJobs.rejected, (state, action) => {

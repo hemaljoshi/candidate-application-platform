@@ -1,5 +1,5 @@
 import { combineReducers } from '@reduxjs/toolkit';
-import jobsReducer from './slices/jobsSlice';
+import jobsReducer from './slices/jobsSlice'    
 
 const rootReducer = combineReducers({
     jobs: jobsReducer,

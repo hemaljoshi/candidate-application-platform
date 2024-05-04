@@ -71,9 +71,17 @@ const minimumExperienceStyle = {
 
 const minimumExperienceValueStyle = { fontSize: 14, fontWeight: 400 };
 
+const buttonContainerStyle = {
+  display: "flex",
+  flexDirection: "column",
+  gap: 1,
+  justifyContent: "center",
+  px: 1,
+};
+
 const easyApplyButtonStyle = {
   border: "0px",
-  borderRadius: 4,
+  borderRadius: 6,
   background: "rgb(85, 239, 196)",
   fontSize: 16,
   fontWeight: 400,
@@ -81,6 +89,19 @@ const easyApplyButtonStyle = {
   cursor: "pointer",
   color: "black",
   textTransform: "none",
+};
+
+const referralButtonStyle = {
+  border: "0px",
+  borderRadius: 6,
+  background: "#4943DA",
+  fontSize: 12,
+  fontWeight: 400,
+  letterSpacing: 1,
+  cursor: "pointer",
+  color: "white",
+  textTransform: "none",
+  lineHeight: 2.3,
 };
 
 const boxColumnStyle = { display: "flex", flexDirection: "column" };
@@ -171,13 +192,20 @@ const JobDetailsCard = ({ item }) => {
             {item.minExp ? `${item.minExp} Years` : "NA"}
           </Typography>
         </Box>
-        <Box mt={4} sx={{ display: "flex", justifyContent: "center" }}>
+        <Box mt={4} sx={buttonContainerStyle}>
           <Button
             fullWidth
             onClick={() => window.open(item.jdLink)}
             style={easyApplyButtonStyle}
           >
             ⚡ Easy Apply
+          </Button>
+          <Button
+            fullWidth
+            onClick={() => window.open(item.jdLink)}
+            style={referralButtonStyle}
+          >
+            Unlock referral asks
           </Button>
         </Box>
       </Paper>
