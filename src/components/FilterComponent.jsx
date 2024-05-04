@@ -1,12 +1,12 @@
 import React from "react";
 import { Autocomplete, Chip, TextField } from "@mui/material";
+import ExpandMoreRoundedIcon from "@mui/icons-material/ExpandMoreRounded";
 
 const FilterComponent = ({ data, label, value, setValue }) => {
   return (
     <Autocomplete
-      sx={{ height: "100px" }}
+      sx={{ my: 1 }}
       multiple
-      id="fixed-tags-demo"
       value={value}
       onChange={(event, newValue) => {
         setValue([...newValue]);
@@ -20,7 +20,18 @@ const FilterComponent = ({ data, label, value, setValue }) => {
       }
       style={{ minWidth: 200 }}
       renderInput={(params) => (
-        <TextField {...params} label={label} size="small" />
+        <TextField
+          {...params}
+          size="small"
+          hiddenLabel
+          placeholder={label}
+          sx={{
+            width: "100%",
+            "& .MuiAutocomplete-input": {
+              borderRight: "1px solid #ccc",
+            },
+          }}
+        />
       )}
     />
   );

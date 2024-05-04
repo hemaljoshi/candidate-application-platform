@@ -72,7 +72,6 @@ const App = () => {
     setFilteredDetails([...filteredData]);
   }, [roles, experience, salary, jobType, jobListings]);
 
-
   return (
     <div ref={containerRef} style={{ height: "100vh", overflowY: "scroll" }}>
       <Container>
@@ -85,7 +84,7 @@ const App = () => {
           rowGap={0}
           justifyContent="center"
           alignItems="center"
-          p={2}
+          px={2}
         >
           <Grid xs={12} sm={5} md={2.5} item>
             <FilterComponent
@@ -120,7 +119,7 @@ const App = () => {
             />
           </Grid>
         </Grid>
-        <Grid container p={2} rowSpacing={4} columnSpacing={4}>
+        <Grid container p={2} rowSpacing={4} columnSpacing={4} mt={2}>
           {filteredJobs?.length > 0 ? (
             filteredJobs.map((item) => (
               <Grid item xs={12} sm={6} md={4} key={item.id}>
@@ -128,8 +127,8 @@ const App = () => {
               </Grid>
             ))
           ) : (
-            <Typography variant="body1" align="center">
-              No jobs found matching the filters.
+            <Typography variant="body1" sx={{ width: "100%", textAlign: "center" }}>
+              No jobs found based on the selected filters
             </Typography>
           )}
           <Box mt={1} sx={{ width: "100%", textAlign: "center" }}>
