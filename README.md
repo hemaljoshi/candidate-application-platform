@@ -5,7 +5,7 @@ This project is a candidate application platform developed as part of the interv
 ## Live Demo
 
 The project is deployed on Vercel and can be accessed using the following link:
-[https://candidate-application-platform.vercel.app/](https://candidate-application-platform.vercel.app/)
+[https://candidate-application-platform-topaz.vercel.app/](https://candidate-application-platform-topaz.vercel.app/)
 
 ## Project Setup
 
